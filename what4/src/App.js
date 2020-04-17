@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form';
 import Main from './components/Main';
 import styled from 'styled-components';
 
@@ -11,6 +10,10 @@ const AppContainer = styled.div`
   margin: 0 auto;
   display: flex;
   align-items: flex-end;
+`
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
 `
 
 const FormContainer = styled.div`
@@ -42,6 +45,12 @@ class App extends React.Component {
     this.setState({valorInputConteudo: event.target.value})
   }
 
+  onKeyDownEnter = (event) => {
+    if (event.key === 'Enter'){
+      this.adicionaMensagem()
+    }
+  }
+
   adicionaMensagem = () => {
     const novaMensagem = {
       usuario: this.state.valorInputRemetente,
@@ -55,23 +64,23 @@ class App extends React.Component {
   }
 
   render(){
-    const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
-      return (
-        <Main 
-          remetente={mensagem.remetente}
-          conteudo={mensagem.conteudo}
-        />
-      )
-    });
+    // const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
+    //   return (
+    //     <Main 
+    //       remetente={mensagem.remetente}
+    //       conteudo={mensagem.conteudo}
+    //     />
+    //   )
+    // });
 
     return (
       <AppContainer>
-        <div>
+        {/* <MainContainer>
           {listaDeMensagensNaTela}
-        </div>
+        </MainContainer> */}
         <FormContainer>
           <InputRemetente value={this.state.valorInputRemetente} onChange={this.onChangeInputRemetente} placeholder={'Usuário'} />
-          <InputConteudo value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} placeholder={'Mensagem'} />
+          <InputConteudo value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} onKeyDown={this.onKeyDownEnter} placeholder={'Mensagem'} />
           <button onClick={this.adicionaMensagem} >Enviar</button>
         </FormContainer>
       </AppContainer>
