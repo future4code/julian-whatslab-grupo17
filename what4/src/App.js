@@ -4,6 +4,29 @@ import Form from './components/Form';
 import Main from './components/Main';
 import styled from 'styled-components';
 
+const AppContainer = styled.div`
+  border: 1px solid black;
+  width: 600px;
+  height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+`
+
+const FormContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
+
+const InputRemetente = styled.input`
+  width: 15%;
+`
+
+const InputConteudo = styled.input`
+  width: 70%;
+`
+
 class App extends React.Component {
   state = {
     listaDeMensagens: [],
@@ -32,13 +55,26 @@ class App extends React.Component {
   }
 
   render(){
+    const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
+      return (
+        <Main 
+          remetente={mensagem.remetente}
+          conteudo={mensagem.conteudo}
+        />
+      )
+    });
 
     return (
-      <div className="App">
-        <input value={this.state.valorInputRemetente} onChange={this.onChangeInputRemetente} placeholder={'Usuário'} />
-        <input value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} placeholder={'Mensagem'} />
-        <button onClick={this.adicionaMensagem} >Enviar</button>
-      </div>
+      <AppContainer>
+        <div>
+          {listaDeMensagensNaTela}
+        </div>
+        <FormContainer>
+          <InputRemetente value={this.state.valorInputRemetente} onChange={this.onChangeInputRemetente} placeholder={'Usuário'} />
+          <InputConteudo value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} placeholder={'Mensagem'} />
+          <button onClick={this.adicionaMensagem} >Enviar</button>
+        </FormContainer>
+      </AppContainer>
     );
   }
 }
