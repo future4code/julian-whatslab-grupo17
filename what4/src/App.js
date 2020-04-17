@@ -1,8 +1,14 @@
 import React from 'react';
-import './App.css';
-import Form from './components/Form';
-import Main from './components/Main';
+import Form from './Components/Form';
+import Main from './Components/Main';
 import styled from 'styled-components';
+
+const What4App = styled.div ` 
+  margin: 0;
+  width: 100vw;
+  height: 100vh;
+
+`
 
 class App extends React.Component {
   state = {
@@ -34,11 +40,15 @@ class App extends React.Component {
   render(){
 
     return (
-      <div className="App">
+
+      <What4App>
+         <Main>
+        
+        </Main> 
         <input value={this.state.valorInputRemetente} onChange={this.onChangeInputRemetente} placeholder={'Usuário'} />
         <input value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} placeholder={'Mensagem'} />
         <button onClick={this.adicionaMensagem} >Enviar</button>
-      </div>
+      </What4App>
     );
   }
 }
