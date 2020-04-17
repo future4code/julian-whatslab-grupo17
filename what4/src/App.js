@@ -1,4 +1,5 @@
 import React from 'react';
+import Form from './Components/Form';
 import './App.css';
 import Main from './components/Main';
 import styled from 'styled-components';
