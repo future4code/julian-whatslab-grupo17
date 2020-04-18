@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import ExibeMensagem from './ExibeMensagem';
 
 
 const MsgTemplate = styled.main `
@@ -25,25 +24,27 @@ const UserMsg = styled.p `
     justify-items: center;
 ` 
 
-class App extends React.Component {
+class ExibeMensagem extends React.Component {
     state = {
      
     }
 
+    deletaMensagem = (event) => {
+        console.log(event.target);
+        if (window.confirm('Tem certeza que quer apagar a mensagem?')) {
+            console.log("apagar");
+        }
+    }
+
     render(){
-        console.log('passou na main')
+        console.log('passou na ExibeMensagem')
         return(
-            <div>
-                <MsgTemplate>
-                    <ExibeMensagem 
-                        remetente={this.props.remetente}
-                        conteudo={this.props.conteudo}
-                    />
-                </MsgTemplate>
+            <div onDoubleClick={this.deletaMensagem}>
+                <UserName>{this.props.remetente}</UserName>
+                <UserMsg>{this.props.conteudo}</UserMsg>
             </div>
         )
-        
     }
 }
 
-export default App
+export default ExibeMensagem
