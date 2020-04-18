@@ -1,7 +1,7 @@
 import React from 'react';
-import Form from './Components/Form';
-import Main from './Components/Main';
 import styled from 'styled-components';
+import OwnMsgTemplate from './Components/OwnMsgTemplate';
+import OtherMsgTemplate from './Components/OtherMsgTemplate';
 
 //Styles
 const AppContainer = styled.div`
@@ -14,6 +14,7 @@ const AppContainer = styled.div`
   align-items: center;
 `
 const MainContainer = styled.div`
+  background-color: #e5dfd5;
   border: 1px solid black;
   border-radius: 8px;
   overflow: auto;
@@ -74,12 +75,21 @@ class App extends React.Component {
      const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
       console.log('formou a msg')
       console.log(mensagem)
-      return (
-         <Main 
-           remetente={mensagem.usuario}
-           conteudo={mensagem.conteudo}
-        />
-      )
+      if(mensagem.usuario.toLowerCase() !== 'eu'){
+        return (
+          <OtherMsgTemplate 
+            remetente={mensagem.usuario}
+            conteudo={mensagem.conteudo}
+          />
+        )
+      }else if(mensagem.usuario.toLowerCase() === 'eu'){
+        return (
+          <OwnMsgTemplate 
+            remetente={mensagem.usuario}
+            conteudo={mensagem.conteudo}
+          />
+        )
+      }
     });
 
     return (

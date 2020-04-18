@@ -1,30 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
-
 const MsgTemplate = styled.main `
-    margin-bottom: 25px;
-    max-width: 100%;
+    border-radius: 5px;
+    background-color: #cfffc7;
+    margin: 25px 25px 5px 0px;
+    min-width: 30%;
     max-height: auto;
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
+    align-self: flex-end;
 `;
 const UserName = styled.h4 `
     margin: 0;
     display: flex;
     align-self: flex-end;
     max-height: auto;
-`
+`;
 const UserMsg = styled.p `
     margin: 0;
     max-height: auto;
     display: flex;
-    align-self: flex-end;
+    align-self: flex-start;
     align-items: center;
     justify-items: center;
-` 
+`; 
 
-class App extends React.Component {
+class OwnMsgTemplate extends React.Component {
     state = {
      
     }
@@ -32,12 +34,13 @@ class App extends React.Component {
     render(){
         console.log('passou na main')
         return(
-        <MsgTemplate>
-            <UserName>{this.props.remetente}</UserName>
-            <UserMsg>{this.props.conteudo}</UserMsg>
-        </MsgTemplate>
+                <MsgTemplate>
+                    <UserName>{this.props.remetente}</UserName>
+                    <UserMsg>{this.props.conteudo}</UserMsg>
+                </MsgTemplate>
+
         )
     }
 }
 
-export default App
+export default OwnMsgTemplate
