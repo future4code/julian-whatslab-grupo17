@@ -1,6 +1,5 @@
 import React from 'react';
-import Form from './Components/Form';
-import Main from './Components/Main';
+import Main from './components/Main';
 import styled from 'styled-components';
 
 //Styles
@@ -59,7 +58,7 @@ class App extends React.Component {
   }
   adicionaMensagem = () => {
     const novaMensagem = {
-      usuario: this.state.valorInputRemetente,
+      remetente: this.state.valorInputRemetente,
       conteudo: this.state.valorInputConteudo
     }
 
@@ -75,9 +74,9 @@ class App extends React.Component {
       console.log('formou a msg')
       console.log(mensagem)
       return (
-         <Main 
-           remetente={mensagem.usuario}
-           conteudo={mensagem.conteudo}
+        <Main 
+          remetente={mensagem.remetente}
+          conteudo={mensagem.conteudo}
         />
       )
     });
