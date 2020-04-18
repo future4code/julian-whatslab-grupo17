@@ -2,13 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const MsgTemplate = styled.main `
-    margin-bottom: 25px;
-    max-width: 100%;
-    max-height: auto;
-    display: flex;
-    flex-direction: column; 
-`;
 const UserName = styled.h4 `
     margin: 0;
     display: flex;
