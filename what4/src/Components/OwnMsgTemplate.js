@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ExibeMensagem from './ExibeMensagem';
 
 const MsgTemplate = styled.main `
     border-radius: 5px;
@@ -34,12 +35,24 @@ class OwnMsgTemplate extends React.Component {
     render(){
         console.log('passou na main')
         return(
+<<<<<<< HEAD:what4/src/Components/OwnMsgTemplate.js
                 <MsgTemplate>
                     <UserName>{this.props.remetente}</UserName>
                     <UserMsg>{this.props.conteudo}</UserMsg>
                 </MsgTemplate>
 
+=======
+            <div>
+                <MsgTemplate>
+                    <ExibeMensagem 
+                        remetente={this.props.remetente}
+                        conteudo={this.props.conteudo}
+                    />
+                </MsgTemplate>
+            </div>
+>>>>>>> 1208c8b9e51b98a04ed58840b54225fbe1cb031f:what4/src/Components/Main.js
         )
+        
     }
 }
 
