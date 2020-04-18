@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import ExibeMensagem from './ExibeMensagem';
 
 const MsgTemplate = styled.main `
     border-radius: 5px;
@@ -12,20 +13,6 @@ const MsgTemplate = styled.main `
     align-items: center;
     align-self: flex-start; 
 `;
-const UserName = styled.h4 `
-    margin: 0;
-    display: flex;
-    align-self: flex-start;
-    max-height: auto;
-`;
-const UserMsg = styled.p `
-    margin: 0;
-    max-height: auto;
-    display: flex;
-    align-self: flex-start;
-    align-items: center;
-    justify-items: center;
-`; 
 
 class OtherMsgTemplate extends React.Component {
     state = {
@@ -35,10 +22,14 @@ class OtherMsgTemplate extends React.Component {
     render(){
         console.log('passou na main')
         return(
+            <div>
                 <MsgTemplate>
-                    <UserName>{this.props.remetente}</UserName>
-                    <UserMsg>{this.props.conteudo}</UserMsg>
+                    <ExibeMensagem 
+                        remetente={this.props.remetente}
+                        conteudo={this.props.conteudo}
+                    />
                 </MsgTemplate>
+            </div>
 
         )
     }

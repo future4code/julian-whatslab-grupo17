@@ -1,8 +1,4 @@
 import React from 'react';
-<<<<<<< HEAD
-=======
-import Main from './components/Main';
->>>>>>> 1208c8b9e51b98a04ed58840b54225fbe1cb031f
 import styled from 'styled-components';
 import OwnMsgTemplate from './Components/OwnMsgTemplate';
 import OtherMsgTemplate from './Components/OtherMsgTemplate';
@@ -79,7 +75,6 @@ class App extends React.Component {
      const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
       console.log('formou a msg')
       console.log(mensagem)
-<<<<<<< HEAD
       if(mensagem.usuario.toLowerCase() !== 'eu'){
         return (
           <OtherMsgTemplate 
@@ -95,14 +90,7 @@ class App extends React.Component {
           />
         )
       }
-=======
-      return (
-        <Main 
-          remetente={mensagem.remetente}
-          conteudo={mensagem.conteudo}
-        />
-      )
->>>>>>> 1208c8b9e51b98a04ed58840b54225fbe1cb031f
+
     });
 
     return (

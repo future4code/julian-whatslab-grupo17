@@ -11,21 +11,7 @@ const MsgTemplate = styled.main `
     display: flex;
     flex-direction: column;
     align-self: flex-end;
-`;
-const UserName = styled.h4 `
-    margin: 0;
-    display: flex;
-    align-self: flex-end;
-    max-height: auto;
-`;
-const UserMsg = styled.p `
-    margin: 0;
-    max-height: auto;
-    display: flex;
-    align-self: flex-start;
-    align-items: center;
-    justify-items: center;
-`; 
+` 
 
 class OwnMsgTemplate extends React.Component {
     state = {
@@ -35,13 +21,7 @@ class OwnMsgTemplate extends React.Component {
     render(){
         console.log('passou na main')
         return(
-<<<<<<< HEAD:what4/src/Components/OwnMsgTemplate.js
-                <MsgTemplate>
-                    <UserName>{this.props.remetente}</UserName>
-                    <UserMsg>{this.props.conteudo}</UserMsg>
-                </MsgTemplate>
 
-=======
             <div>
                 <MsgTemplate>
                     <ExibeMensagem 
@@ -50,7 +30,6 @@ class OwnMsgTemplate extends React.Component {
                     />
                 </MsgTemplate>
             </div>
->>>>>>> 1208c8b9e51b98a04ed58840b54225fbe1cb031f:what4/src/Components/Main.js
         )
         
     }
