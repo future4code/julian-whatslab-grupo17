@@ -1,36 +1,41 @@
 import React from 'react';
 import Form from './Components/Form';
-import './App.css';
-import Main from './components/Main';
+import Main from './Components/Main';
 import styled from 'styled-components';
 
+//Styles
 const AppContainer = styled.div`
   border: 1px solid black;
   width: 600px;
   height: 100vh;
   margin: 0 auto;
-  display: flex;
-  align-items: flex-end;
+  display: flex
+  flex-direction: column-reverse;
+  align-items: center;
 `
 const MainContainer = styled.div`
+  border: 1px solid black;
+  border-radius: 8px;
+  overflow: auto;
+  max-width: 100%;
+  height: 97%;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  align-items: flex-end;
 `
-
 const FormContainer = styled.div`
+  position: static;
   width: 100%;
   display: flex;
   justify-content: center;
 `
-
 const InputRemetente = styled.input`
   width: 15%;
 `
-
 const InputConteudo = styled.input`
-  width: 70%;
+  width: 75%;
 `
-
+//Functions
 class App extends React.Component {
   state = {
     listaDeMensagens: [],
@@ -44,6 +49,7 @@ class App extends React.Component {
 
   onChangeInputConteudo = (event) => {
     this.setState({valorInputConteudo: event.target.value})
+    console.log('passou no conteudo')
   }
 
   onKeyDownEnter = (event) => {
@@ -51,7 +57,6 @@ class App extends React.Component {
       this.adicionaMensagem()
     }
   }
-
   adicionaMensagem = () => {
     const novaMensagem = {
       usuario: this.state.valorInputRemetente,
@@ -62,23 +67,26 @@ class App extends React.Component {
     novasMensagens.push(novaMensagem);
 
     this.setState({listaDeMensagens: novasMensagens, valorInputConteudo: ''});
+    console.log('passou no onclick')
+    console.log(this.state.listaDeMensagens)
   }
-
   render(){
-    // const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
-    //   return (
-    //     <Main 
-    //       remetente={mensagem.remetente}
-    //       conteudo={mensagem.conteudo}
-    //     />
-    //   )
-    // });
+     const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
+      console.log('formou a msg')
+      console.log(mensagem)
+      return (
+         <Main 
+           remetente={mensagem.usuario}
+           conteudo={mensagem.conteudo}
+        />
+      )
+    });
 
     return (
       <AppContainer>
-        {/* <MainContainer>
+        <MainContainer>
           {listaDeMensagensNaTela}
-        </MainContainer> */}
+        </MainContainer>
         <FormContainer>
           <InputRemetente value={this.state.valorInputRemetente} onChange={this.onChangeInputRemetente} placeholder={'Usuário'} />
           <InputConteudo value={this.state.valorInputConteudo} onChange={this.onChangeInputConteudo} onKeyDown={this.onKeyDownEnter} placeholder={'Mensagem'} />
