@@ -75,17 +75,17 @@ class App extends React.Component {
      const listaDeMensagensNaTela = this.state.listaDeMensagens.map(mensagem => {
       console.log('formou a msg')
       console.log(mensagem)
-      if(mensagem.usuario.toLowerCase() !== 'eu'){
+      if(mensagem.remetente.toLowerCase() !== 'eu'){
         return (
           <OtherMsgTemplate 
-            remetente={mensagem.usuario}
+            remetente={mensagem.remetente}
             conteudo={mensagem.conteudo}
           />
         )
-      }else if(mensagem.usuario.toLowerCase() === 'eu'){
+      }else if(mensagem.remetente.toLowerCase() === 'eu'){
         return (
           <OwnMsgTemplate 
-            remetente={mensagem.usuario}
+            remetente={mensagem.remetente}
             conteudo={mensagem.conteudo}
           />
         )

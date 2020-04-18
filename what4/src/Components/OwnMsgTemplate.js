@@ -22,14 +22,14 @@ class OwnMsgTemplate extends React.Component {
         console.log('passou na main')
         return(
 
-            <div>
-                <MsgTemplate>
-                    <ExibeMensagem 
-                        remetente={this.props.remetente}
-                        conteudo={this.props.conteudo}
-                    />
-                </MsgTemplate>
-            </div>
+            
+            <MsgTemplate>
+                <ExibeMensagem 
+                    remetente={this.props.remetente}
+                    conteudo={this.props.conteudo}
+                />
+            </MsgTemplate>
+            
         )
         
     }

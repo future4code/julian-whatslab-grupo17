@@ -10,7 +10,6 @@ const MsgTemplate = styled.main `
     max-height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     align-self: flex-start; 
 `;
 
@@ -22,14 +21,14 @@ class OtherMsgTemplate extends React.Component {
     render(){
         console.log('passou na main')
         return(
-            <div>
-                <MsgTemplate>
-                    <ExibeMensagem 
-                        remetente={this.props.remetente}
-                        conteudo={this.props.conteudo}
-                    />
-                </MsgTemplate>
-            </div>
+            
+            <MsgTemplate>
+                <ExibeMensagem 
+                    remetente={this.props.remetente}
+                    conteudo={this.props.conteudo}
+                />
+            </MsgTemplate>
+            
 
         )
     }
